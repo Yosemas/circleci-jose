@@ -1,8 +1,13 @@
-version: 2.1
-
 jobs:
   build:
     docker:
-      - image: alpine:latest
+    # Primary container image where all steps run.
+     - image: cimg/base:current
+    # Secondary container image on common network.
+     - image: cimg/mariadb:10.6
+
     steps:
-      - run: docker -v
+      # command will execute in an Ubuntu-based container
+      # and can access MariaDB on localhost
+      - run: sleep 5 && nc -vz localhost 3306
+
