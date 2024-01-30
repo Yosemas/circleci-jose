@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  basedatos:
+  base:
     docker:
       - image: cimg/mariadb:latest
     steps:
@@ -15,5 +15,5 @@ jobs:
 workflows:
   proceso:
     jobs:
-      - basedatos:
+      - base:
       - web:
