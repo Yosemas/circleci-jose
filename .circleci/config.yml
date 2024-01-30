@@ -1,11 +1,6 @@
 version: 2.1
 
 jobs:
-#  red:
- #   docker:
-  #    - image: cimg/base:current
-   # steps:
-    #  - run: docker network create red_prueba
   basedatos:
     docker:
       - image: cimg/base:current
@@ -21,10 +16,7 @@ jobs:
 workflows:
   proceso:
     jobs:
-     # - red
       - basedatos:
-      #    requires:
-       #     - red
       - web:
           requires:
             - basedatos
