@@ -1,6 +1,11 @@
 version: 2.1
 
 jobs:
+  comprobar:
+    docker:
+      - image: mariadb:latest
+    steps:
+      - run: docker -v
   base:
     docker:
       - image: mariadb:latest
@@ -15,7 +20,10 @@ jobs:
 workflows:
   proceso:
     jobs:
-      - base
+      - comprobar
+      - base:
+          requires:
+            - comprobar
       - web:
            requires:
               - base
