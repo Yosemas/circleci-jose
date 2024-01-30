@@ -3,7 +3,9 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: docker:latest
+      - image: alpine:latest
     steps:
-      - checkout
-      - run: docker version
+      - run: docker -v
+workflows:
+  proceso:
+    - build
