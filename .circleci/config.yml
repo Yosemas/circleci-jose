@@ -18,5 +18,3 @@ workflows:
     jobs:
       - basedatos:
       - web:
-          requires:
-            - basedatos
