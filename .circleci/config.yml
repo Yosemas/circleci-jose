@@ -16,4 +16,6 @@ workflows:
   proceso:
     jobs:
       - base
-      - web
+      - web:
+        requires:
+          - base
