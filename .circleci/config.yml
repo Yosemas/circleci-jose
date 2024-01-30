@@ -1,0 +1,21 @@
+version: 2.1
+
+jobs:
+  saludar:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: echo Hola
+  despedida:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: echo pre adios
+      - run: echo adios
+workflows:
+  proceso:
+    jobs:
+      - saludar
+      - despedida:
+        - requires:
+          - saludar
