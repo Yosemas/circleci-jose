@@ -17,5 +17,4 @@ workflows:
     jobs:
       - base
       - web:
-        requires:
-          - base
+        requires: base
