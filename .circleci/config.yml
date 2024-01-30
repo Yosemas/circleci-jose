@@ -17,5 +17,5 @@ workflows:
     jobs:
       - saludar
       - despedida:
-        - requires:
+        - require:
           - saludar
