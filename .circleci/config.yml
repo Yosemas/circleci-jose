@@ -15,5 +15,5 @@ jobs:
 workflows:
   proceso:
     jobs:
-      - base:
-      - web:
+      - base
+      - web
