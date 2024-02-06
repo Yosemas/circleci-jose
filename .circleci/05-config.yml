@@ -1,0 +1,20 @@
+version: 2.1
+commands:
+  listado:
+    steps:
+      - checkout
+      - run: ls -la
+      - run: mkdir Prueba24
+      - run: ls -la
+
+jobs:
+  base:
+    docker:
+      - image: ubuntu:latest
+    steps:
+      - listado
+workflows:
+  proceso:
+    jobs:
+      - base
+

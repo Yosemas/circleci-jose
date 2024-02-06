@@ -1,18 +1,15 @@
 version: 2.1
 commands:
-  listado:
+  levantar_maquina:
     steps:
-      - checkout
-      - run: ls -la
-      - run: mkdir Prueba24
-      - run: ls -la
+      - run: docker 
 
 jobs:
   base:
-    docker:
-      - image: ubuntu:latest
+    machine:
+      - image: ubuntu-2004:202010-01
     steps:
-      - listado
+      - run: docker -v
 workflows:
   proceso:
     jobs:
