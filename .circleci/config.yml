@@ -3,10 +3,7 @@ commands:
  actualizar:
    steps:
       - run: apt-get update && apt-get install -y
-      - run: apt-get install tzdata
-      - run: timedatectl list-timezones
-      - run: timedatectl set-timezone Europe/Madrid
-      - run: apt-get install docker -y es_ES
+      - run: apt-get install mariadb
 jobs:
   base:
     docker:
