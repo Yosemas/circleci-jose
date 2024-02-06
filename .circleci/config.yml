@@ -1,15 +1,11 @@
 version: 2.1
-commands:
-  levantar_maquina:
-    steps:
-      - run: docker 
-
 jobs:
   base:
     machine:
       - image: ubuntu-2004:202010-01
     steps:
       - run: docker -v
+
 workflows:
   proceso:
     jobs:
