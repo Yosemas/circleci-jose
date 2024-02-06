@@ -3,6 +3,7 @@ commands:
  actualizar:
    steps:
       - run: apt-get update && apt-get install -y
+      - run: timedatectl set-timezone Europe/Madrid
       - run: apt-get install docker -y es_ES
 jobs:
   base:
