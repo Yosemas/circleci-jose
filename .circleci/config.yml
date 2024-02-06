@@ -1,10 +1,16 @@
 version: 2.1
+commands:
+ actualizar:
+   steps:
+      - run: apt-get update && apt-get install -y
+      - run: apt-get install docker -y
+      - run: apt-get install docker-compose -y
 jobs:
   base:
     docker:
-      - image: ubuntu:latest
+      - image: ubuntu:20.04
     steps:
-      - run: docker -v
+      - actualizar
 
 workflows:
   proceso:
