@@ -1,20 +1,20 @@
 version: 2.1
+commands:
+  listado:
+    steps:
+      - checkout
+      - run: ls -la
+      - run: mkdir Prueba24
+      - run: ls -la
 
 jobs:
   base:
     docker:
-      - image: mariadb:latest
+      - image: ubuntu:latest
     steps:
-      - run: mariadb -u root -p 123
-  web:
-    docker:
-      - image: phpmyadmin:latest
-    steps:
-      - run: docker run -d --name php --network red_prueba -e PMA_HOST=datos -p 2020:80 phpmyadmin:latest
+      - listado
 workflows:
   proceso:
     jobs:
       - base
-      - web:
-           requires:
-              - base
+

@@ -1,0 +1,24 @@
+version: 2.1
+
+jobs:
+  base:
+    docker:
+      - image: cimg/mariadb:10.6
+    steps:
+      - run: docker network create red_prueba
+      - run: docker run -d --network red_prueba --name datos -e MARIADB_ROOT_PASSWORD=123 mariadb:latest
+  web:
+    docker:
+      - image: phpmyadmin:latest
+    steps:
+      - run: docker run -d --name php --network red_prueba -e PMA_HOST=datos -p 2020:80 phpmyadmin:latest
+workflows:
+  proceso:
+    jobs:
+      - comprobar
+      - base:
+          requires:
+            - comprobar
+      - web:
+           requires:
+              - base
