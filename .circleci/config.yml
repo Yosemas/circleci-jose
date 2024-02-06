@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   base:
-    machine:
+    docker:
       - image: ubuntu-2004:202010-01
     steps:
       - run: docker -v
